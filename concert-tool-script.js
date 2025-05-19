@@ -3,8 +3,9 @@ let accessToken = '';
 
 // Redirect to user's deployed Vercel backend
 document.getElementById('login').addEventListener('click', () => {
-  window.location.href = 'https://spot-auth-murex.vercel.app/';
+  window.location.href = 'https://spot-auth-git-main-inst377.vercel.app/api/login';
 });
+
 
 // Extract access token from URL on load
 window.onload = async () => {
