@@ -1,5 +1,5 @@
 const SPOTIFY_CLIENT_ID = '579778cdb1a24df0b84b496fc7a5f33e';
-const REDIRECT_URI = 'https://your-vercel-or-github-pages-url/concert-tool.html';
+const REDIRECT_URI = 'https://inst-377-project-sigma.vercel.app/concert-tool.html';
 const TICKETMASTER_API_KEY = '6QU5kvuR4MH7V6InGySFpZqGADwa21Wo';
 const SCOPES = 'user-top-read';
 let accessToken = '';
