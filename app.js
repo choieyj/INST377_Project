@@ -1,7 +1,7 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-const clientId = 'dbc874061f684f23a2e2679152122b50';
-const redirect = "https://choieyj.github.io/tool";
+const clientId = '579778cdb1a24df0b84b496fc7a5f33e';
+const redirect = "https://inst-377-project-sigma.vercel.app/tool";
 const AUTHORIZE = "https://accounts.spotify.com/authorize";
 
 const supabaseUrl = 'https://elvempcvrbivdsxsxqjg.supabase.co';
@@ -15,8 +15,8 @@ const output = document.getElementById('output');
 const TICKETMASTER_KEY = '9W4IAiuiI9Oipich4R4AivG8IGyu8ERf';
 
 window.onload = async () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const code = urlParams.get('code');
+  var urlParams = new URLSearchParams(window.location.search);
+  var code = urlParams.get('code');
 
   if (code) {
     output.style.display = 'block';
