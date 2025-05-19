@@ -1,7 +1,7 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 const clientId = '579778cdb1a24df0b84b496fc7a5f33e';
-const redirect = "https://inst-377-project-sigma.vercel.app/tool";
+const redirect = "https://inst-377-project-sigma.vercel.app/tool.html";
 const AUTHORIZE = "https://accounts.spotify.com/authorize";
 
 const supabaseUrl = 'https://elvempcvrbivdsxsxqjg.supabase.co';
@@ -19,16 +19,12 @@ window.onload = async () => {
   var code = urlParams.get('code');
 
   if (code) {
-    output.style.display = 'block';
-    output.textContent = "⏳ Exchanging code for token...";
     try {
       const { data, error } = await supabase.functions.invoke('get-token', {
         body: { code }
       });
 
-      if (error) {
-        output.textContent = "❌ Error:\n" + JSON.stringify(error, null, 2);
-      } else {
+      if (!error) {
         output.textContent = "✅ Token Received.";
         loginBtn.style.display = 'none';
         artistBtn.style.display = 'inline-block';
@@ -54,9 +50,7 @@ artistBtn.onclick = async () => {
       body: { access_token: window.accessToken }
     });
 
-    if (error) {
-      output.textContent = "❌ Error fetching artists:\n" + JSON.stringify(error, null, 2);
-    } else {
+    if (!error) {
       output.style.display = 'none';
       artistList.style.display = 'grid';
       artistList.innerHTML = '';
