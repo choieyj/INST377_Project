@@ -3,9 +3,9 @@ let accessToken = '';
 
 // Redirect to user's deployed Vercel backend
 document.getElementById('login').addEventListener('click', () => {
-  window.location.href = 'https://spot-auth-git-main-inst377.vercel.app/api/login';
+  const redirect = encodeURIComponent('https://inst-377-project-sigma.vercel.app/concert-tool.html');
+  window.location.href = `https://spotify-auth-proxy-demo.vercel.app/api/login?redirect_uri=${redirect}`;
 });
-
 
 // Extract access token from URL on load
 window.onload = async () => {
