@@ -7,8 +7,8 @@ import os
 #Set up the Spotify API client
 load_dotenv()
 
-SPOTIFY_CLIENT_ID = os.getenv("CLIENT_ID")
-SPOTIFY_SECRET = os.getenv("CLIENT_SECRET")
+SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
+SPOTIFY_SECRET = os.getenv("SPOTIFY_SECRET")
 SCOPE = "user-top-read"
 REDIRECT_URI = "http://127.0.0.1:8080"
 USERNAME = "X"
