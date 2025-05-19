@@ -1,29 +1,24 @@
-const SPOTIFY_CLIENT_ID = '579778cdb1a24df0b84b496fc7a5f33e';
-const REDIRECT_URI = 'https://inst-377-project-sigma.vercel.app/concert-tool.html';
 const TICKETMASTER_API_KEY = '6QU5kvuR4MH7V6InGySFpZqGADwa21Wo';
-const SCOPES = 'user-top-read';
 let accessToken = '';
 
-// Spotify login
+// Redirect to Spotify Auth Proxy login
 document.getElementById('login').addEventListener('click', () => {
-  const authUrl = `https://accounts.spotify.com/authorize?client_id=${SPOTIFY_CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${SCOPES}`;
-  window.location.href = authUrl;
+  window.location.href = 'https://spotify-auth-proxy.glitch.me/login?redirect_uri=https://inst-377-project-sigma.vercel.app/concert-tool.html';
 });
 
-// On page load
+// Extract access token from URL on load
 window.onload = async () => {
   const hash = window.location.hash;
-  if (hash) {
-    const params = new URLSearchParams(hash.substring(1));
-    accessToken = params.get('access_token');
-    if (accessToken) {
-      document.getElementById('loading').classList.remove('hidden');
-      await getTopArtists();
-    }
+  const params = new URLSearchParams(hash.substring(1));
+  accessToken = params.get('access_token');
+
+  if (accessToken) {
+    document.getElementById('loading').classList.remove('hidden');
+    await getTopArtists();
   }
 };
 
-// Get user's top artists
+// Get user's top artists from Spotify
 async function getTopArtists() {
   const response = await fetch('https://api.spotify.com/v1/me/top/artists?limit=5', {
     headers: { Authorization: `Bearer ${accessToken}` }
@@ -33,7 +28,7 @@ async function getTopArtists() {
   fetchConcerts(artistNames);
 }
 
-// Fetch concerts for each artist from Ticketmaster
+// Fetch concert data from Ticketmaster
 async function fetchConcerts(artists) {
   const container = document.getElementById('concerts');
   container.innerHTML = '';
