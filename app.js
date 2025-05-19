@@ -25,13 +25,12 @@ window.onload = async () => {
       });
 
       if (!error) {
-        output.textContent = "✅ Token Received.";
         loginBtn.style.display = 'none';
         artistBtn.style.display = 'inline-block';
         window.accessToken = data.access_token;
       }
     } catch (err) {
-      output.textContent = "💥 Unexpected error:\n" + err.message;
+      output.textContent = "Unexpected error:\n" + err.message;
     }
   }
 };
