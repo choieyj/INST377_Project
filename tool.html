@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TuneTrail | Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar centered-navbar">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="tool.html" class="nav-link">Tool</a>
+    </nav>
+  </header>
+  
+  <button id="loginBtn">Login with Spotify</button>
+  <button id="artistBtn" style="display: none;">Get Your Top Artists Now</button>
+
+  <div id="artistList" class="artist-grid"></div>
+  <div id="results"></div>
+  
+  <pre id="output"></pre>
+  
+  <script type="module" src="app.js"></script>
+</body>
+</html>
