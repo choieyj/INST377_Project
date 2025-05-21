@@ -61,27 +61,34 @@ Open `index.html` with Live Server in VS Code or drag it into your browser. That
 
 ---
 
-## 🎧 Function
+## 🎧 Function and APIs
 
-- **Spotify**: Gets your top artists (after you log in).
-- **Ticketmaster**: Searches for concerts that match those artists.
+- **Spotify**: Retrieve the user's top 5 artists.
+- **Ticketmaster**: Paired with the user's location, search for concerts that match the user's top artists
 - Then we show you links to buy tickets, sorted by artist.
+  
+- **Supabase edge functions**: some functions, such as get-token and get-artists are executed through edge functions on Supabase
+- **Vercel**: We use Vercel to run our webpage
+
 
 ---
 
-## 🐛 Bugs
+
+## 🐛 Bugs and Potential Issues
 
 - Login might fail if the Spotify redirect URI is wrong.
 - Some artists don’t return concert results (especially lesser-known ones).
+- Some artists don't have images on Spotify.
+  
 
 ---
 
 ## 🛠 Potential Future Improvements
 
 - Add error messages when no concerts are found.
-- Maybe show artist images while loading.
-- Filter concerts by location.
+- Filter or allow search for concerts by location instead of user location
 - Save previous searches (local storage or cookies?).
+- Add options to retrieve top x artists in y months (x can be between 1 and 20, y is 3, 6, or 12).
 
 ---
 
